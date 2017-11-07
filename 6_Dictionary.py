@@ -120,6 +120,21 @@ print(f)                 #这里返回78
 
 g = dict.pop('Bob')      #用方法pop()可以删除一个“键-值”对
 print(dict)
+
+#字典值可以没有限制地取任何python对象，既可以是标准的对象，也可以是用户定义的，但键不行。
+# 1）不允许同一个键出现两次。创建时如果同一个键被赋值两次，后一个值会被记住，如下实例：
+dict = {'Name': 'Zara', 'Age': 7, 'Name': 'Manni'}  #这个会直接输出最后一个Name的值
+
+# 2）键必须不可变，所以可以用数字，字符串或元组充当，所以用列表就不行，如下实例：
+dict = {['Name']: 'Zara', 'Age': 7}
+print('dict['Name']: ', dict['Name']
+'''
+以上实例输出结果：
+Traceback (most recent call last):
+  File "test.py", line 3, in <module>
+    dict = {['Name']: 'Zara', 'Age': 7};
+TypeError: list objects are unhashable
+'''
 '''
 一、请务必注意，dict内部存放的顺序和key放入的顺序是没有关系的。
 二、和list比较，dict有以下几个特点：
