@@ -1,0 +1,13 @@
+#将十进制(decimal)转换为二进制(binaru) （除2取余，逆序排列）
+#相关单词：divide除以 quotient商 remainder余数
+decimal = int(input("Please input a decimal number: "))
+quotient = decimal // 2
+remainder = ''
+while quotient != 0:
+    quotient = decimal // 2
+    remainder += str(decimal % 2)
+    decimal = quotient
+print(remainder[::-1]) #把余数串倒序输出，就是二进制的值
+
+#将二进制转换为十进制（要从右到左用二进制的每个数去乘以2的相应次方,小数点后则是从左往右）
+binary = list[input("Please input a binary number: ")]
