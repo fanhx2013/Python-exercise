@@ -9,5 +9,14 @@ while quotient != 0:
     decimal = quotient
 print(remainder[::-1]) #把余数串倒序输出，就是二进制的值
 
+----------------------------------------------------------------------------------------
 #将二进制转换为十进制（要从右到左用二进制的每个数去乘以2的相应次方,小数点后则是从左往右）
-binary = list[input("Please input a binary number: ")]
+binary = list(input("Please input a binary number: "))
+decimal = 0
+length = len(binary)
+for i in binary:
+    decimal += int(i) * 2**(length-1)
+    length -= 1
+    if length == 0:
+        break
+print(decimal)
