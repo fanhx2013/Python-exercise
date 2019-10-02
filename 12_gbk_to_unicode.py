@@ -24,10 +24,21 @@ print(tmp)
 #This is a textfile to excercise.
 #GBK to Unicode.
 
---------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------
 #但是如果将这个文本文件的内容改一下，加一行中文，内容如下(仍另存为utf-8编码格式)：
 #This is a textfile to excercise.
 #GBK to Unicode.
 #你好
 #则运行出错，错误提示是：
 #UnicodeDecodeError: 'gbk' codec can't decode byte 0xbd in position 57: incomplete multibyte sequence
+#这个是字符流的问题，读取文件时，加上encoding = 'utf-8'就可以了，代码如下
+
+fp1 = open('W:\\fanhx\code\PycharmProjects\Python\GBK_to_unicode.txt','r',encoding = 'utf-8')
+info1 = fp1.read() #已知是GBK编码，解码成unicode
+tmp = info1.encode('utf-8').decode('GBK')
+print(tmp)
+
+#但是此时输出的结果仍不对，中文是错的，还在找问题原因
+#This is a textfile to excercise.
+#GBK to Unicode.
+#浣犲ソ
