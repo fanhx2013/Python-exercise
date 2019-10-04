@@ -38,7 +38,9 @@ info1 = fp1.read() #已知是GBK编码，解码成unicode
 tmp = info1.encode('utf-8').decode('GBK')
 print(tmp)
 
-#但是此时输出的结果仍不对，中文是错的，还在找问题原因
+#但是此时输出的结果仍不对，中文是乱码；
 #This is a textfile to excercise.
 #GBK to Unicode.
 #浣犲ソ
+#这是因为info1已经是utf-8，把info1再编码成utf-8，再解码的话也要解码为utf-8，而不能解码为GBK。
+#把decode('GBK')改为decode('utf-8')就对了。
